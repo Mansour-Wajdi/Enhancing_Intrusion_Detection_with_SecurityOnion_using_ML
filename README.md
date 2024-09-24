@@ -6,6 +6,15 @@ The work involved the setup and configuration of **[Security Onion](https://secu
 
 This project was conducted as part of an internship at the **[National Agency of Cybersecurity (NACS)](https://www.ancs.tn/)**, or **Agence Nationale de la Cybersécurité (ANCS)** in French, a Tunisian agency specializing in safeguarding digital infrastructures. The primary objective of this project is to enhance the efficiency of Intrusion Detection Systems (IDS) by reducing the number of false positives generated, allowing security analysts to focus on real threats.
 
+## Repository Structure
+
+The repository is organized as follows:
+
+- **App/**: Contains the main application code, including the scripts for network monitoring and machine learning model integration with Security Onion.
+- **IPython Notebook/**: Includes Jupyter notebooks for machine learning model development and alert prioritization.
+- **report_images/**: Stores images used for documentation purposes.
+- **README.md**: Documentation of the project and instructions for setup.
+
 ## Tasks Achieved
 
 ### 1. Security Onion Setup, Attack Simulation, and Detection Assessment
