@@ -15,11 +15,8 @@ The repository is organized as follows:
 - **report_images/**: Stores images used for documentation purposes.
 - **README.md**: Documentation of the project and instructions for setup.
 
-## Tasks Achieved
 
-### 1. Security Onion Setup, Attack Simulation, and Detection Assessment
-
-#### Virtualized Architecture Setup
+## Virtualized Architecture Setup
 The virtualized architecture was established using Oracle VirtualBox. Three machines were set up: 
 - **Attacking Machine (Kali Linux)**: This machine was used to simulate attacks.
 - **Victim Machine (Windows 10)**: This machine contained vulnerabilities to simulate attack scenarios.
@@ -30,50 +27,13 @@ The virtualized architecture was established using Oracle VirtualBox. Three mach
 <img src="report_images/Virtualized_Architecture_topology.svg" alt="Virtualized Architecture topology" width="800"/>
 <br>
 
-#### Security Onion Standalone Setup
-Security Onion was installed and configured for Network Security Monitoring (NSM) and Enterprise Security Monitoring (ESM). Tools like **Suricata** and **Google Stenographer** were used for intrusion detection and full packet capture.
 
-<br>
-<img src="report_images/Installation_options_for_Security_Onion.png" alt="Installation options for Security Onion" width="800"/>
-<br>
-<img src="report_images/Installation_options_for_Security_Onion2.png" alt="Installation options for Security Onion" width="800"/>
-<br>
+## Machine Learning Model Development
 
-#### Security Onion Import Setup
-...
-
-### 2. Basic Examples of Attack Simulation and Detection
-Two attack examples were simulated:
-- **Metasploit SMB Exploitation**
-
-<br>
-<img src="report_images/Metasploit_exploitation_windows_smb_psexec.png" alt="Metasploit exploitation windows/smb/psexec" width="800"/>
-<br>
-
-- **Security Onion detection**
-
-<br>
-<img src="report_images/Metasploit_exploitation_windows_smb_results.png" alt="Metasploit exploitation windows/smb/psexec results" width="800"/>
-<br>
-
-- **NMAP Scan**
-
-<br>
-<img src="report_images/NMAP_scan_execution.png" alt="NMAP scan execution and results" width="800"/>
-<br>
-
-- **Security Onion detection**
-
-<br>
-<img src="report_images/NMAP_scan_results.png" alt="NMAP scan execution and results" width="800"/>
-<br>
-
-### 3. Machine Learning Model Development
-
-#### Classification Model:
+### Classification Model:
 This phase of the project centers on the development of a machine learning classification model, trained on the **UNSW-NB15 dataset**, to predict the authenticity of network traffic, distinguishing between genuine threats and false positives.
 
-#### UNSW-NB15 Dataset:
+### UNSW-NB15 Dataset:
 The [UNSW-NB15 Dataset](https://research.unsw.edu.au/projects/unsw-nb15-dataset) is a publicly available dataset widely used in cybersecurity to develop and test intrusion detection systems (IDS) and intrusion prevention systems (IPS). It was developed by the Australian Centre for Cyber Security (ACCS) at the University of New South Wales in Australia.
 
 The figure below summarizes the full steps of the ML Model development:
@@ -82,10 +42,10 @@ The figure below summarizes the full steps of the ML Model development:
 <img src="report_images/workflow_diagram_for_ML_model_Development.svg" alt="workflow diagram for ML model Development" width="800"/>
 <br>
 
-#### Implementation:
+### Implementation:
 The implementation for this step is documented in a Jupyter notebook, offering a step-by-step explanation of the process. Please refer to [Classification model.ipynb](IPython%20Notebook/Classification%20model.ipynb) for access to this detailed guide.
 
-### 4. Alert Prioritization with Packet Analysis and Machine Learning
+## Alert Prioritization with Packet Analysis and Machine Learning
 The alert prioritization process involved four essential steps arranged in a pipeline: 
 - **Elasticsearch Data Extraction**
 - **PCAP Files Fetching**
@@ -96,7 +56,7 @@ The alert prioritization process involved four essential steps arranged in a pip
 <img src="report_images/workflow_diagram_for_Alerts_prioritization.svg" alt="workflow diagram for Alerts prioritization" width="800"/>
 <br>
 
-#### Elasticsearch Data Extraction:
+### Elasticsearch Data Extraction:
 The first step involves extracting Suricata alerts from **Elasticsearch**, identifying the associated connection information (flow info) for each alert, and saving the results in a CSV file.
 
 <br>
@@ -107,7 +67,7 @@ The first step involves extracting Suricata alerts from **Elasticsearch**, ident
 The implementation for this step is documented in a Jupyter notebook, offering a step-by-step explanation of the process. Please refer to [Classification model.ipynb](IPython%20Notebook/Elasticsearch%20Data%20Extraction.ipynb) for access to this detailed guide.
  
 
-#### PCAP Files Fetching:
+### PCAP Files Fetching:
 This step focuses on fetching **Packet Capture (PCAP)** files essential for acquiring the complete network flow associated with each alert. The process involves SSH connectivity with the Security Onion machine.
 
 <br>
@@ -118,14 +78,14 @@ This step focuses on fetching **Packet Capture (PCAP)** files essential for acqu
 The implementation for this step is documented in a Jupyter notebook, providing a comprehensive, step-by-step explanation of the process. You can access the detailed guide in [Remote PCAP Request and Retrieval (so-standalone).ipynb](IPython%20Notebook/Remote%20PCAP%20Request%20and%20Retrieval%20(so-standalone).ipynb) for the standalone node and in [Remote PCAP Retrieval and Filtering (so-import).ipynb](IPython%20Notebook/Remote%20PCAP%20Retrieval%20and%20Filtering%20(so-import).ipynb) for the import node, each tailored to their respective implementations.
 
 
-#### Features Extraction:
+### Features Extraction:
 In this step, features for each alert are computed based on the UNSW-NB15 dataset. The relevant features are extracted from each alert's PCAP file and saved in a CSV file.
 
 <br>
 <img src="report_images/Sequence_diagram_for_Features_Extraction.svg" alt="Sequence diagram for Features Extraction" width="800"/>
 <br>
 
-#### Prediction:
+### Prediction:
 The final step involves predicting whether the alerts correspond to true attacks or false alarms, using the previously trained classification model.
 
 <br>
@@ -139,14 +99,14 @@ The implementation for this step is documented in a Jupyter notebook, offering a
 ## Graphical User Interface (GUI) Development
 A graphical interface was developed using **CustomTkinter** to facilitate interaction with the system.
 
-### Use Cases:
+## Use Cases:
 The diagram below offers a visual representation of the various interaction scenarios, providing a comprehensive understanding of the functionalities and use cases.
 
 <br>
 <img src="report_images/Use_Cases.svg" alt="Use Cases" width="800"/>
 <br>
 
-### App Interfaces:
+## App Interfaces:
 1. **Elasticsearch Alerts Interface**: Allows analysts to retrieve Suricata alerts and related flow information.
 
 <br>
